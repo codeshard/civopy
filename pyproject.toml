@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "civopy"
+version = "2.0.0"
+description = ""
+authors = ["Ozkar L. Garcell <ozkar.garcell@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "civo"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.25.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff-lsp = "^0.0.39"
+black = "^23.9.1"
+
+[tool.poetry.group.test.dependencies]
+pytest-anyio = "^0.0.0"
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "^9.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+venvPath = "./"
+venv = ".venv"
+reportMissingImports = false
+reportMissingTypeStubs = false
+typeCheckingMode = "off"
+pythonVersion = "3.9"
+
+[tool.ruff]
+select = ["E", "F"]
+ignore = []
+line-length = 120
+target-version = "py39"
+
+[tool.black]
+line-length = 120
+exclude="/test/"
+target-version = ["py39"]
